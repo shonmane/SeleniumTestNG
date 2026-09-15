@@ -1,0 +1,14 @@
+apps:
+  rs_automation:
+    url: https://rahulshettyacademy.com/AutomationPractice/#top
+    timeout:
+  amazon:
+    url: https://www.amazon.in/
+    timeout:
+  flipkart:
+    url: https://www.flipkart.com/
+    timeout:
+
+browser: chrome
+
+
