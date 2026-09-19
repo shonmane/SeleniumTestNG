@@ -1,0 +1,10 @@
+<suite name="Suite" parallel="methods" thread-count="4">
+    <listeners>
+        <listener class-name="utility.listeners.TestListener"/>
+    </listeners>
+    <test name="RegressionTest">
+        <classes>
+            <class name="testcases.AutomationPracticeTest"/>
+        </classes>
+    </test>
+</suite>

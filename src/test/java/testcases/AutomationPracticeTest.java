@@ -1,16 +1,13 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+package testcases;
+
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageobjects.DropdownPage;
-import pageobjects.RadioButtonPage;
 import utility.BaseTest;
 import utility.configreader.AppsConfig;
 import utility.configreader.ConfigReader;
-import utility.driver.DriverFactory;
 import utility.enums.AppNames;
+import utility.reporting.ExtentManager;
 
 import static utility.driver.DriverManager.*;
 
@@ -27,12 +24,19 @@ public class AutomationPracticeTest extends BaseTest {
     @Test
     public void radioButtonTest() {
         pages().radioButtonPage().selectRadioButton();
-        System.out.println("Selected Radio Button");
+        ExtentManager.logStep("Selected Radio Button");
     }
 
     @Test
     public void selectDropdownTest(){
         pages().dropdownPage().selectOptionDropdown();
-        System.out.println("Selected all three dropdown options");
+//        System.out.println("Selected all three dropdown options");
+        ExtentManager.logStep("Selected all three dropdown options");
+    }
+
+    @Test
+    public void failTest(){
+        Assert.fail();
+        System.out.println("Failure test");
     }
 }

@@ -13,6 +13,7 @@ public class RadioButtonPage extends BasePage{
 
     public void selectRadioButton(){
         waitAndClick(radioBtn1);
+
     }
 
     public void verifyRadioButtonSelected(){
