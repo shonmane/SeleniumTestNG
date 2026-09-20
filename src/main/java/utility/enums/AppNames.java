@@ -3,8 +3,8 @@ package utility.enums;
 public enum AppNames {
 
     RS_AUTOMATION("rs_automation"),
-    AMAZON("amazon"),
-    FLIPKART("flipkart");
+    EVENTHUB("eventhub"),
+    DUMMY_CLIENT("dummy_client");
 
     private final String key;
 

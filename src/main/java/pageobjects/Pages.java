@@ -1,6 +1,10 @@
 package pageobjects;
 
 import org.openqa.selenium.WebDriver;
+import pageobjects.eventhub.EventHubHomePage;
+import pageobjects.eventhub.EventHubLoginPage;
+import pageobjects.practice.DropdownPage;
+import pageobjects.practice.RadioButtonPage;
 
 public class Pages {
 
@@ -8,6 +12,8 @@ public class Pages {
 
     private RadioButtonPage radioButtonPage;
     private DropdownPage dropdownPage;
+    private EventHubLoginPage eventHubLoginPage;
+    private EventHubHomePage eventHubHomePage;
 
     public Pages(WebDriver driver){
         this.driver=driver;
@@ -27,6 +33,18 @@ public class Pages {
         return dropdownPage;
     }
 
+    public EventHubLoginPage eventHubLoginPage() {
+        if(eventHubLoginPage==null){
+            eventHubLoginPage=new EventHubLoginPage(driver);
+        }
+        return eventHubLoginPage;
+    }
 
+    public EventHubHomePage eventHubHomePage(){
+        if (eventHubHomePage==null){
+            eventHubHomePage = new EventHubHomePage(driver);
+        }
+        return eventHubHomePage;
+    }
 
 }

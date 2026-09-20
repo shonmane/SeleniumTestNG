@@ -1,7 +1,8 @@
-package pageobjects;
+package pageobjects.practice;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import pageobjects.BasePage;
 import utility.enums.SelectDropdownBy;
 
 public class DropdownPage extends BasePage {

@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import static utility.reporting.ExtentManager.captureScreenshotAsBase64;
 import static utility.reporting.ExtentManager.getTest;
 
 public class TestListener implements ITestListener {
@@ -53,30 +54,10 @@ public class TestListener implements ITestListener {
         ExtentManager.getInstance().flush(); // writes the HTML file to disk
     }
 
-    private static String captureScreenshotAsBase64() {
-        try {
-            WebDriver driver = DriverManager.getDriver();
-            // getScreenshotAs(BASE64) returns the screenshot directly as a base64 String —
-            // no file write, no disk path, no folder to keep alongside the report at all.
-            return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
-        } catch (IllegalStateException e) {
-            // driver already quit, or similar — don't let reporting crash the actual test result
-            return null;
-        }
-    }
 
-    public static void logStep(String message) {
-        System.out.println(message);          // console — for live run visibility / CI console output
-        getTest().log(Status.INFO, message);  // report — for the persisted HTML artifact
-    }
 
-    public static void logStepWithScreenshot(String message) {
-        System.out.println(message);
 
-        ExtentTest extentTest = getTest();
-        extentTest.log(Status.INFO, message);
-        extentTest.addScreenCaptureFromBase64String(captureScreenshotAsBase64());
-    }
+
 
 
 }

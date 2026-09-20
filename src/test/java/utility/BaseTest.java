@@ -1,16 +1,15 @@
 package utility;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import pageobjects.Pages;
 import utility.configreader.AppsConfig;
 import utility.configreader.ConfigReader;
 import utility.driver.DriverFactory;
 import utility.driver.DriverManager;
+import utility.listeners.TestListener;
 
+@Listeners(TestListener.class)
 public class BaseTest{
 
     private static final ThreadLocal<Pages> pages = new ThreadLocal<>();

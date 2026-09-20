@@ -1,6 +1,7 @@
 package pageobjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.enums.SelectDropdownBy;
 
 import java.time.Duration;
+import java.util.Objects;
 
 public abstract class BasePage {
     protected final WebDriver driver;
@@ -18,6 +20,17 @@ public abstract class BasePage {
     protected BasePage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    }
+
+    protected String getPageTitle(){
+        return driver.getTitle();
+    }
+
+    protected void waitForPageLoad() {
+        wait.until(webDriver ->
+                Objects.equals(((JavascriptExecutor) webDriver)
+                        .executeScript("return document.readyState"), "complete")
+        );
     }
 
     protected WebElement waitAndFind(By locator){

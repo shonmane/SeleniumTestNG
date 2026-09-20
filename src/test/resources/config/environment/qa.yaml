@@ -2,11 +2,11 @@ apps:
   rs_automation:
     url: https://rahulshettyacademy.com/AutomationPractice/#top
     timeout:
-  amazon:
-    url: https://www.amazon.in/
+  eventhub:
+    url: https://eventhub.rahulshettyacademy.com/login
     timeout:
-  flipkart:
-    url: https://www.flipkart.com/
+  dummy_client:
+    url: https://rahulshettyacademy.com/client/#/auth/login
     timeout:
 
 browser: chrome
